@@ -5,7 +5,7 @@ import {MatInputModule} from '@angular/material/input';
 
 import { AppComponent } from './app.component';
 import { ChatComponent } from './components/chat/chat.component';
-import { UsernnameComponent } from './components/usernname/usernname.component';
+import { UsernameComponent } from './components/username/username.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
@@ -14,7 +14,7 @@ import {MatIconModule} from '@angular/material/icon';
   declarations: [
     AppComponent,
     ChatComponent,
-    UsernnameComponent
+    UsernameComponent
   ],
   imports: [
     BrowserModule,

@@ -1,11 +1,11 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'app-usernname',
-  templateUrl: './usernname.component.html',
-  styleUrls: ['./usernname.component.scss']
+  selector: 'app-username',
+  templateUrl: './username.component.html',
+  styleUrls: ['./username.component.scss']
 })
-export class UsernnameComponent {
+export class UsernameComponent {
   @Output() usernameEvent = new EventEmitter<string>();
 
   username = '';
