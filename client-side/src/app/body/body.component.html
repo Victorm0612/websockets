@@ -1,0 +1,19 @@
+<div class="page">
+  <header class="header">
+    <h2>Provide feedback</h2>
+  </header>
+  <label class="message__label" for="feedback__input"
+    >Provide more information about what you have observed</label
+  >
+  <textarea
+    class="message"
+    name="feedback__input"
+    id="feedback__input"
+    cols="30"
+    rows="10"
+    [disabled]="isDisabled"
+    [(ngModel)]="message"
+    (keyup)="saveMessage()"
+  ></textarea>
+  <button class="button" (click)="changeState()">Send feedback</button>
+</div>

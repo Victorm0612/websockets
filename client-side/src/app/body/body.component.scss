@@ -1,0 +1,60 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.header {
+  background-color: #444;
+  color: white;
+  margin: 0 !important;
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  padding: 1.2rem 1rem;
+  h2 {
+    font-weight: 300;
+    padding: 1rem 1rem;
+  }
+}
+
+.message__label {
+  margin: 0 1rem;
+  margin-top: 4rem;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.message {
+  margin: 1rem 1rem;
+  width: 50rem;
+  border: 1px solid rgb(172, 172, 172);
+  resize: none;
+  font-family: inherit;
+  font-size: 1.3rem;
+
+  &:focus-visible {
+    border: 1px solid rgb(172, 172, 172);
+    outline: none;
+  }
+}
+
+.button {
+  background-color: #cc1f20;
+  color: white;
+  width: 12rem;
+  border: none;
+  outline: none;
+  padding: 1rem 1rem;
+  margin: 1rem 1rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #d82222;
+  }
+}
+
+.message:disabled {
+  background: rgba(204, 204, 204, 0.226);
+}
