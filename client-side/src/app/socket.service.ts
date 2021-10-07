@@ -24,5 +24,11 @@ export class SocketService {
     this.socket.emit("message-received", this.feedbackMessage);
   }
 
-  getMessage() {}
+  closeConnection() {
+    this.socket.close();
+  }
+
+  openConnection() {
+    this.socket.connect();
+  }
 }

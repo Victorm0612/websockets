@@ -22,6 +22,11 @@ export class BodyComponent implements OnInit, OnDestroy {
   //Disabled button
   changeState() {
     this.isDisabled = !this.isDisabled;
+    if (this.isDisabled) {
+      this.socketService.closeConnection();
+    } else {
+      this.socketService.openConnection();
+    }
   }
 
   //Send the message
