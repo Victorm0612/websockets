@@ -1,4 +1,5 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnDestroy, OnInit } from "@angular/core";
+import { Subscription } from "rxjs";
 import { ChatService } from "src/app/chat.service";
 import { Message } from "src/app/models/Message.model";
 
@@ -7,23 +8,26 @@ import { Message } from "src/app/models/Message.model";
   templateUrl: "./chat.component.html",
   styleUrls: ["./chat.component.scss"],
 })
-export class ChatComponent implements OnInit {
+export class ChatComponent implements OnInit, OnDestroy {
   message: string = "";
-  users: string[] = [];
-  messageList: Message[];
   username: string = "";
 
-  constructor(private chatService: ChatService) {}
+  messageList: Message[];
+  users: string[] = [];
+  private usersSub: Subscription;
+  private msgSub: Subscription;
+
+  constructor(private chatService: ChatService) { }
 
   ngOnInit(): void {
     this.messageList = this.chatService.getMessages();
     this.users = this.chatService.getUsers();
 
-    this.chatService.messagesEvent.subscribe((messages: Message[]) => {
+    this.msgSub = this.chatService.messagesEvent.subscribe((messages: Message[]) => {
       this.messageList = messages;
     });
 
-    this.chatService.usersEvent.subscribe((users: string[]) => {
+    this.usersSub = this.chatService.usersEvent.subscribe((users: string[]) => {
       this.users = users;
     });
   }
@@ -37,4 +41,10 @@ export class ChatComponent implements OnInit {
     this.chatService.sendMessage(this.message);
     this.message = "";
   }
+
+  ngOnDestroy(): void {
+    this.msgSub.unsubscribe();
+    this.usersSub.unsubscribe();
+  }
+
 }
