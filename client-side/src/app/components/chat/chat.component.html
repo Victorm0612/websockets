@@ -1,0 +1,27 @@
+<div class="container">
+  <h1><strong>🔴💬 SOCKET IO -Spike Chat 🔌🔴</strong></h1>
+  <app-usernname (usernameEvent)="usernameUpdate($event)" *ngIf="!username"></app-usernname>
+  <div class="chatbox">
+    <div class="chatbox__user-list">
+      <h2>ACTIVE USERS</h2>
+      <div class="chatbox__user--active" *ngFor="let user of users" >
+        <p> {{ user }}</p>
+      </div>
+    </div>
+    <div class="messages_list">
+      <div class="chatbox__messages" *ngFor="let msg of messageList" [ngClass]="{isOwnMessage: msg.isOwnMessage}">
+        <div class="user-message">
+          <div class="message-box">
+            <p class="name">{{ msg.username }}</p>
+            <br/>
+            <p class="message">{{ msg.message }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="send-message" *ngIf="username">
+    <input type="text" [(ngModel)]="message">
+    <button mat-mini-fab color="warn" (click)="sendMessage()"><mat-icon>send</mat-icon></button>
+  </div>
+</div>

@@ -1,0 +1,111 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  h1 {
+    margin: 0.5em auto;
+    color: #000000;
+    text-align: center;
+  }
+}
+
+.chatbox {
+  background: rgba(176, 181, 255, 0.05);
+  width: 60%;
+  height: 55%;
+  border-radius: 0.2em;
+  position: relative;
+  box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.1);
+  .messages_list {
+    overflow-y: auto;
+    height: 100%;
+  }
+  &__messages {
+    &.isOwnMessage .message-box {
+      float: right;
+      background-color: #f44336;
+      & > p.name {
+        color: #ffffffa9;
+        font-size: 1em;
+      }
+      & > p.message {
+        color: #ffffff;
+      }
+    }
+    .message-box {
+      float: left;
+    }
+  }
+  .message-box {
+    background: rgba(65, 65, 65, 0.2);
+    padding: 1em 0;
+    height: auto;
+    width: 55%;
+    border-radius: 5px;
+    margin: 2em 1em;
+    overflow: auto;
+    & > p.name {
+      color: #f44336;
+      font-size: 1em;
+    }
+    & > p.message {
+      color: rgb(0, 0, 0);
+      font-size: 1.2em;
+      margin: 0 2.8em;
+    }
+  }
+  &__user-list {
+    background: rgba(163, 163, 163, 0.1);
+    width: 25%;
+    height: 100%;
+    float: right;
+    border-top-right-radius: 0.2em;
+    border-bottom-right-radius: 0.2em;
+    h1 {
+      background: rgba(255, 255, 255, 0.05);
+      color: rgba(0, 0, 0, 0.9);
+      font-size: 0.9em;
+      padding: 1em;
+      margin: 0;
+      font-weight: 300;
+      text-align: center;
+    }
+  }
+  &__user {
+    width: 0.8em;
+    height: 0.8em;
+    border-radius: 100%;
+    margin: 1em 0.7em;
+    &--active {
+      @extend .chatbox__user;
+      background: rgb(12, 175, 85);
+    }
+  }
+  p {
+    float: left;
+    text-align: left;
+    margin: -0.25em 2em;
+    font-size: 1.2em;
+    font-weight: 300;
+    color: rgba(0, 0, 0, 0.521);
+    width: 200px;
+  }
+  form {
+    background: #222;
+    input {
+      background: rgba(255, 255, 255, 0.03);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      border: none;
+      width: 75%;
+      padding: 1.2em;
+      outline: none;
+      color: rgba(0, 0, 0, 0.9);
+      font-weight: 300;
+    }
+  }
+}
