@@ -21,7 +21,7 @@
     </div>
   </div>
   <div class="send-message" *ngIf="username">
-    <input type="text" [(ngModel)]="message">
+    <input type="text" [(ngModel)]="message" (keydown.enter)="sendMessage()">
     <button mat-mini-fab color="warn" (click)="sendMessage()"><mat-icon>send</mat-icon></button>
   </div>
 </div>
