@@ -1,4 +1,4 @@
-#  websockets
+#  Chat-app
 
 ![Chat](https://github.com/Victorm0612/websockets/blob/feature/chat-app/imgs/Captura%20de%20pantalla%202021-10-08%20100403.png)
 
