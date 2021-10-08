@@ -12,8 +12,10 @@ export class BodyComponent implements OnInit, OnDestroy {
   isDisabled: boolean = false;
   message: string = "";
 
-  constructor(private socketService: SocketService) {
-    //Su
+  constructor(private socketService: SocketService) {}
+
+  ngOnInit() {
+    this.socketService.connect();
     this.socketService.$customObservable.subscribe((data) => {
       this.message = data;
     });
@@ -38,6 +40,4 @@ export class BodyComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.socketService.$customObservable.unsubscribe();
   }
-
-  ngOnInit() {}
 }

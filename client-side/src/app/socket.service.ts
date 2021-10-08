@@ -10,7 +10,9 @@ export class SocketService {
   feedbackMessage: string = "";
   $customObservable: any;
 
-  constructor() {
+  constructor() {}
+
+  connect() {
     this.socket = io.io(`http://localhost:3000/`);
     this.$customObservable = new Observable((observer) => {
       this.socket.on("message-sent", (data) => {
